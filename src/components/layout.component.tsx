@@ -1,13 +1,25 @@
 import {Flex} from 'antd';
 import SidebarComponent from './sidebar.component';
-import HeaderComponent from './header.component';
+import {Header} from 'antd/es/layout/layout';
 
 export const RootLayout = ({children}) => {
   return (
-    <Flex style={{height: '100vh', width: '100%'}}>
-      <HeaderComponent />
-      <SidebarComponent />
-      {children}
-    </Flex>
+    <>
+      <Header
+        style={{
+          width: '100%',
+          position: 'fixed',
+          zIndex: 1000,
+          background: '#e2d0d0ff',
+          color: '#000000',
+        }}
+      />
+
+      <Flex style={{height: '100vh', width: '100%'}}>
+        <SidebarComponent />
+
+        {children}
+      </Flex>
+    </>
   );
 };

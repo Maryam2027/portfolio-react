@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Breadcrumb, Layout, Menu, theme} from 'antd';
+import {FishTextComponent} from './fishText.component';
+import {GoldFishTextComponent} from './goldFishText.component';
+import {AccountDetailsTextComponent} from './accountDetailsText.component';
 
 const {Content, Sider} = Layout;
 
@@ -20,18 +23,33 @@ const siderItems = [
 
 const SidebarComponent: React.FC = () => {
   const {
-    token: {colorBgContainer, borderRadiusLG},
+    token: {borderRadiusLG},
   } = theme.useToken();
+
+  const [selectedKey, setSelectedKey] = useState('account');
+
+  const renderContent = () => {
+    switch (selectedKey) {
+      case 'account':
+        return <AccountDetailsTextComponent />;
+      case 'fish':
+        return <FishTextComponent />;
+      case 'goldFish':
+        return <GoldFishTextComponent />;
+      default:
+        return <h2>Welcome! Please select a menu item.</h2>;
+    }
+  };
 
   return (
     <Layout>
-      <Sider width={200} style={{background: colorBgContainer}}>
+      <Sider width={200} style={{marginTop: 80}}>
         <Menu
           mode='inline'
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          selectedKeys={[selectedKey]}
           style={{height: '100%', borderInlineEnd: 0}}
           items={siderItems}
+          onClick={(e) => setSelectedKey(e.key)} // update content when clicked
         />
       </Sider>
 
@@ -39,12 +57,12 @@ const SidebarComponent: React.FC = () => {
         style={{
           padding: 24,
           margin: 0,
-          minHeight: 280,
-          background: colorBgContainer,
+          minHeight: 80,
           borderRadius: borderRadiusLG,
+          marginTop: 50,
         }}
       >
-        Content
+        {renderContent()}
       </Content>
     </Layout>
   );
