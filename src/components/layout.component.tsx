@@ -8,14 +8,14 @@ export const RootLayout = ({children}) => {
       <Header
         style={{
           width: '100%',
-          position: 'fixed',
+          position: 'absolute',
           zIndex: 1000,
           background: '#e2d0d0ff',
           color: '#000000',
         }}
       />
 
-      <Flex style={{height: '100vh', width: '100%'}}>
+      <Flex style={{width: '100%'}}>
         <SidebarComponent />
 
         {children}
