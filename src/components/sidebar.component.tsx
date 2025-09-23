@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Breadcrumb, Layout, Menu, theme} from 'antd';
+import {Layout, Menu, theme} from 'antd';
 import {FishTextComponent} from './fishText.component';
 import {GoldFishTextComponent} from './goldFishText.component';
 import {AccountDetailsTextComponent} from './accountDetailsText.component';
@@ -56,7 +56,6 @@ const SidebarComponent: React.FC = () => {
       <Content
         style={{
           padding: 24,
-          margin: 0,
           minHeight: 80,
           borderRadius: borderRadiusLG,
           marginTop: 50,
