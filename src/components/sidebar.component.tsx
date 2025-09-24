@@ -2,15 +2,16 @@ import React, {useState} from 'react';
 import {Layout, Menu, theme} from 'antd';
 import {FishTextComponent} from './fishText.component';
 import {GoldFishTextComponent} from './goldFishText.component';
-import {AccountDetailsTextComponent} from './accountDetailsText.component';
+import {CartilaginousFishTextComponent} from './cartilaginousFish.component';
+import {JawlessFishTextComponent} from './jawlessFish.component';
+import {BonyFishTextComponent} from './bonyFish.component';
+import {RayFinnedFishTextComponent} from './rayFinnedFish.component';
+import {LobeFinnedFishTextComponent} from './lobeFinnedFish.component';
+import {WelcomeScreenComponent} from './welcome.component';
 
 const {Content, Sider} = Layout;
 
 const siderItems = [
-  {
-    key: 'account',
-    label: 'Account',
-  },
   {
     key: 'fish',
     label: 'Fish',
@@ -18,6 +19,26 @@ const siderItems = [
   {
     key: 'goldFish',
     label: 'Gold Fish',
+  },
+  {
+    key: 'jawlessFish',
+    label: 'Jawless Fishes',
+  },
+  {
+    key: 'cartilaginousFish',
+    label: 'Cartilaginous Fishes',
+  },
+  {
+    key: 'bonyFish',
+    label: 'Bony Fishes',
+  },
+  {
+    key: 'rayFinnedFish',
+    label: 'Ray-finned Fishes',
+  },
+  {
+    key: 'lobeFinnedFish',
+    label: 'Lobe-finned Fishes',
   },
 ];
 
@@ -30,14 +51,23 @@ const SidebarComponent: React.FC = () => {
 
   const renderContent = () => {
     switch (selectedKey) {
-      case 'account':
-        return <AccountDetailsTextComponent />;
       case 'fish':
         return <FishTextComponent />;
       case 'goldFish':
         return <GoldFishTextComponent />;
+      case 'cartilaginousFish':
+        return <CartilaginousFishTextComponent />;
+      case 'jawlessFish':
+        return <JawlessFishTextComponent />;
+      case 'bonyFish':
+        return <BonyFishTextComponent />;
+      case 'rayFinnedFish':
+        return <RayFinnedFishTextComponent />;
+      case 'lobeFinnedFish':
+        return <LobeFinnedFishTextComponent />;
+
       default:
-        return <h2>Welcome! Please select a menu item.</h2>;
+        return <WelcomeScreenComponent />;
     }
   };
 
